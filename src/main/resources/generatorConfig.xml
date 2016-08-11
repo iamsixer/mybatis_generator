@@ -50,9 +50,9 @@ PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
 		</javaClientGenerator>
 		 
 		<!--对应数据库表名 -->
-		<table tableName="user" enableCountByExample="true" enableUpdateByExample="true" enableDeleteByExample="true"
+		<table tableName="message" domainObjectName="Messgae" enableCountByExample="true" enableUpdateByExample="true" enableDeleteByExample="true"
 			   enableSelectByExample="true" selectByExampleQueryId="true" >
-		 	
+			<generatedKey column="id" sqlStatement="MySql" identity="true"/>
 		</table>
 	</context>
 </generatorConfiguration>
