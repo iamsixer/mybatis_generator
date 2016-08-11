@@ -1,4 +1,4 @@
-package com.feng.util;
+package com.feng.plugin;
 
 import static org.mybatis.generator.internal.util.StringUtility.isTrue;
 
@@ -54,7 +54,7 @@ public class MyCommentGenerator implements CommentGenerator {
 		SimpleDateFormat sf = new SimpleDateFormat("yyyy-MM-dd");
 		// add no file level comments by default
 		compilationUnit.addFileCommentLine("/**");
-		compilationUnit.addFileCommentLine("* @author:zhangyf");
+		compilationUnit.addFileCommentLine("* @author:zhangyufeng");
 		compilationUnit.addFileCommentLine("* @date:"+sf.format(new Date()));
 		compilationUnit.addFileCommentLine("*/");
 		return;
@@ -264,9 +264,17 @@ public class MyCommentGenerator implements CommentGenerator {
 		innerClass.addJavaDocLine(" */");
 	}
 
+	@Override
 	public void addModelClassComment(TopLevelClass arg0, IntrospectedTable arg1) {
-		
-		// TODO Auto-generated method stub
-		
+
+		String remarks = "";
+        SimpleDateFormat format = new SimpleDateFormat("yyyy-M-d");
+        arg0.addJavaDocLine("/**");
+        arg0.addJavaDocLine(" * " + remarks);
+        arg0.addJavaDocLine(" *");
+        arg0.addJavaDocLine(" * @date " + format.format(new Date()));
+        arg0.addJavaDocLine(" *");
+        arg0.addJavaDocLine(" */");
+
 	}
 }

@@ -13,8 +13,14 @@ PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
 	<context id="MySQLTables" targetRuntime="MyBatis3">
 		<!-- 防止生成的javabean中字段注释中文乱码 -->
 		<property name="javaFileEncoding" value="UTF-8"/>
+		
+		<!-- 自定义插件 -->
+		<plugin type="com.feng.plugin.MyEqualsHashCodePlugin"></plugin>  
+        <plugin type="org.mybatis.generator.plugins.SerializablePlugin"></plugin>
+        
+        
 		<!--自定义注释 -->
-		<commentGenerator type="com.feng.util.MyCommentGenerator">
+		<commentGenerator type="com.feng.plugin.MyCommentGenerator">
 		</commentGenerator>
 		 
 		<!--数据库连接信息 -->
@@ -22,6 +28,11 @@ PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
 		password="${jdbc.password}">
 		</jdbcConnection>
 		 
+		<!-- java类型配置  该属性可以控制是否强制DECIMAL和NUMERIC类型的字段转换为Java类型的java.math.BigDecimal,默认值为false，一般不需要配置。-->  
+        <javaTypeResolver>  
+            <property name="forceBigDecimals" value="false" />  
+        </javaTypeResolver>  
+        
 		<!--生成的model 包路径 -->
 		<javaModelGenerator targetPackage="${model.package}" targetProject="${target.project}">
 		<property name="enableSubPackages" value="ture"/>
