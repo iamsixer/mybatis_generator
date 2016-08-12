@@ -17,7 +17,7 @@ PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
 		<!-- 自定义插件 -->
 		<plugin type="com.feng.plugin.MyEqualsHashCodePlugin"></plugin>  
         <plugin type="org.mybatis.generator.plugins.SerializablePlugin"></plugin>
-        
+        <plugin type="org.mybatis.generator.plugins.ToStringPlugin"/>
         
 		<!--自定义注释 -->
 		<commentGenerator type="com.feng.plugin.MyCommentGenerator">
@@ -49,7 +49,7 @@ PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
 		<property name="enableSubPackages" value="ture"/>
 		</javaClientGenerator>
 		 
-		<!--对应数据库表名 -->
+		<!--对应数据库表名   tableName="sys_%" 模糊匹配-->
 		<table tableName="message" domainObjectName="Messgae" enableCountByExample="true" enableUpdateByExample="true" enableDeleteByExample="true"
 			   enableSelectByExample="true" selectByExampleQueryId="true" >
 			<generatedKey column="id" sqlStatement="MySql" identity="true"/>
